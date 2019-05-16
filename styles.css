@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600');
+
+body{
+    font-family: Menlo,Montserrat, monospace;
+    font-size: 1em;
+    width: 90%;
+    margin: auto;
+}
+
+.container {
+    border: solid 2px transparent;
+    box-shadow: 0 0 5px #ddd8d8;
+    margin-bottom: 1em;
+    background-color: rgb(240, 240, 240);
+}
+.main-panel {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 300;
+}
+.player_dashbord, .monster_dashbord {    
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.progress-bar {
+    width: 80%;
+    height: 25px;    
+    border:  solid 1px #aaa;
+    border-radius: 25px;
+    margin: 0;
+}
+.progress {
+    background-color: green;
+    height: 100%;
+    border-radius: 25px;
+}
+.player_dashbord .life, .monster_dashbord .life {
+    margin: 0 0 1em ;
+    padding: 0
+}
+.btn-default {
+    background-color: #888;
+    padding: .8em;
+    border: none;
+    margin: 2em 1em;
+    border-radius: 5px;
+    width: 150px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+}
+.start {
+    background-color: #0c09b1;
+    color: #FFF;
+}
+.attack {
+    background-color: rgb(201, 8, 8);
+    color: #FFF;
+}
+.special {
+    background-color: rgb(233, 154, 7);
+    color: #FFF;
+}
+.heal {
+    background-color: rgb(4, 146, 16);
+    color: #FFF;
+}
+.user-action {
+    display: flex;
+    justify-content: center;
+
+}
+.won, .lost, .score-null {
+    text-align: center;
+}
+.won {
+    color: green;
+}
+.lost {
+    color: red;
+}
+.danger {
+    background-color:  red;
+}
+.score-null{
+    color: #f3a006
+}
+.logs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.player, .monster {
+    padding: 1em;
+    margin: .5em;
+    flex: 1;
+    color: #FFF;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.player {
+    background-color:#4253afaa;
+}
+.monster {
+    background-color: #e51c23aa;
+}
+

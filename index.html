@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monster Killer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container main-panel">
+            <div class="player_dashbord">
+                <p>PLayer</p>
+                <div class="progress-bar">
+                    <div class="progress"
+                    :class="{danger: P_life < 20}"
+                    :style='{ width: P_life + "%" }'></div>
+                </div>
+                <p class='life'>Life: {{ P_life }}%</p>
+            </div>
+            <div class="monster_dashbord">
+                <p>Monster</p>
+                <div class="progress-bar">
+                    <div class="progress"
+                        :class="{danger: M_life < 20 }"
+                        :style='{width: M_life + "%" }'></div>
+                </div>
+                <p class='life'>Life: {{ M_life }}%</p>
+            </div>
+        </div>
+        <div class="container" v-if='gameOver'>
+            <template v-if='P_life > 0 && M_life == 0'>
+                <p class='won'>Congratulation for your victory :)</p>
+            </template>
+            <template v-else>
+                <p class="lost">You lost :(</p>
+            </template>
+        </div>
+        <div class="container user-action">
+            <template v-if='!running'>
+                <button class="btn-default start" @click='startGame'>Start new game</button>
+            </template>
+            <template v-if='running'>               
+                <button @click='attack(false)' class="btn-default attack">Attack</button>
+                <button @click='attack(true)' class="btn-default special">Special Attack</button>
+                <button @click='healAttacked' class="btn-default heal">Heal</button>
+                <button @click='desist' class="btn-default">Desist</button>
+            </template>
+        </div>
+        <div class="container" v-show='logs.length'>
+            <ul class="logs">
+                <li v-for="log in logs" :class='log["cl"]'>
+                    {{ log['txt'] }}
+                </li>
+            </ul>
+        </div> 
+    </div> 
+</body>
+</html>
